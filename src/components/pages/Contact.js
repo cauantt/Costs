@@ -2,8 +2,8 @@ function Contact () {
 
     return(
         <div>
-            <h1>Home</h1>
-            <p>Contact</p>
+            <h1>Contact</h1>
+            
         </div>
 
 

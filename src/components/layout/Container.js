@@ -1,13 +1,12 @@
-import styles from "./Container.modules.css"
+// Container.js
+import styles from "./Container.module.css";
 
-
-
-function Container (props) {
-
-    return(
-        <div className={`${styles.container} ${props.customClass}`}>{props.children}</div>
-    )
-
+function Container(props) {
+    return (
+        <div className={`${styles.container} ${props.customClass ? styles[props.customClass] : ''}`}>
+            {props.children}
+        </div>
+    );
 }
 
-export default Container
+export default Container;

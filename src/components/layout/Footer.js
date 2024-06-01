@@ -1,11 +1,30 @@
-import styles from "./Footer.modules.css"
+import styles from "./Footer.module.css"
+import { FaFacebook, FaInstagram, FaLink, FaLinkedin } from "react-icons/fa";
+
+
 
 
 
 function Footer () {
 
     return(
-        <div></div>
+        <footer className={styles.footer}>
+            <ul className={styles.social_list}>
+                <li>        
+                    <FaFacebook/>
+                </li>
+                <li>        
+                    <FaInstagram/>
+                </li>
+                <li>        
+                    <FaLinkedin/>
+                </li>
+            </ul>
+            <p className={styles.copy_right}><span>Costs</span> &copy; 2024</p>
+
+
+
+        </footer>
 
     )
 
