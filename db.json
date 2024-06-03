@@ -1,21 +1,39 @@
 {
-
-    "projects": [],
-    "categories": 
-    [ { "id": 1,
-        "name": "Infrastructure"},
-
-        { "id": 2,
-        "name": "Development"},
-    
-        { "id": 1,
-        "name": "Design"},
-    
-        { "id": 1,
-        "name": "Planning"}
-    
-        
-
-    ]
-
+  "projects": [
+    {
+      "id": "4fe6",
+      "name": "rteste",
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "1e62",
+      "category": {
+        "id": "2",
+        "name": "Development"
+      },
+      "budget": "5000",
+      "name": "dsaasd",
+      "cost": 0,
+      "services": []
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Infrastructure"
+    },
+    {
+      "id": 2,
+      "name": "Development"
+    },
+    {
+      "id": 3,
+      "name": "Design"
+    },
+    {
+      "id": 4,
+      "name": "Planning"
+    }
+  ]
 }

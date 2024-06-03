@@ -5,9 +5,10 @@ import Submit from '../form/Submit'
 import { useEffect, useState } from 'react'
 
 
-function Projectform ({btnText}) {
+function Projectform ({btnText, handleSubmit, projectData}) {
 
      const [categories, setCategories] = useState([])
+     const [project,setProject] = useState(projectData || {})
 
      useEffect(() => {fetch("http://localhost:5000/categories",{
         method: "GET",
@@ -22,21 +23,69 @@ function Projectform ({btnText}) {
     })
 .catch(err => console.log(err))},[])
 
+
+    const submit = (e) => {
+
+        e.preventDefault()
+        handleSubmit(project)
+        //handleSubmit(project)
+      
+
+    }
+
+    function handleChange(e) {
+
+        setProject({ ...project, [e.target.name]: e.target.value})
+      
+    }
+
+    function handleCategory(e) {
+
+        setProject({ 
+            ...project, 
+            category: {
+
+            id: e.target.value,
+            name: e.target.options[e.target.selectedIndex].text,
+                    },
+    })
+        
+    }
+
     
     return(
 
-        <form className={styles.form}>
+        <form onSubmit={submit} className={styles.form}>
             <div>
-            <Input name="name" type="text" text="Project name" placeholder="Insert project name"/>
+            <Input 
+            name="name" 
+            type="text" 
+            text="Project name" 
+            placeholder="Insert project name" 
+            handleOnChange={handleChange}
+            value={project.name ? project.name : ''}
+            
+            />
             </div>
             <div>
-                <Input name="Budget" type="text" text="Budget" placeholder="Insert total budget" />
+                <Input 
+                name="budget" 
+                type="text" 
+                text="Budget" 
+                placeholder="Insert total budget" 
+                handleOnChange={handleChange} 
+                value={project.budget ? project.budget : ''}/>
             </div>
             
-                <Select name="category_id" text="Choose an option" options={categories}/>
+                <Select 
+                name="category_id" 
+                text="Choose an option" 
+                options={categories} 
+                handleOnChange={handleCategory} 
+                value={project.category ? project.category.id : ''}/>
             
                 <Submit text={btnText} />
-
+ 
 
 
 
